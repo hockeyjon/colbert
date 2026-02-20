@@ -7,21 +7,12 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const {
-  TWILIO_ACCOUNT_SID,
-  TWILIO_AUTH_TOKEN,
-  TWILIO_PHONE_NUMBER,
-  ALERT_TO_PHONE
-} = process.env;
 
-function requireEnv(name) {
-  if (!process.env[name]) throw new Error(`Missing required env var: ${name}`);
-}
+const TWILIO_ACCOUNT_SID = "xxxxxxxx";
+const TWILIO_AUTH_TOKEN = "xxxxxxxx";
+const TWILIO_PHONE_NUMBER = "xxxxxxxx";
+const ALERT_TO_PHONE = "xxxxxxxx";
 
-requireEnv('TWILIO_ACCOUNT_SID');
-requireEnv('TWILIO_AUTH_TOKEN');
-requireEnv('TWILIO_PHONE_NUMBER');
-requireEnv('ALERT_TO_PHONE');
 
 async function sendSms(message) {
   const client = twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
